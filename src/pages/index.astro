@@ -1,0 +1,1080 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProductCard from '../components/ProductCard';
+import { getFeaturedProducts } from '../lib/products';
+
+const featuredProducts = getFeaturedProducts(8);
+---
+
+<Layout title="AutoParts - Tu Tienda de Repuestos Premium">
+  <!-- Hero Section with Advanced Animations -->
+    <section class="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-black text-white relative overflow-hidden flex items-center">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0">
+      <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+      </div>
+      <!-- Animated gradient overlay -->
+      <div class="animated-gradient"></div>
+    </div>
+
+    <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+      <div class="text-center">
+        <!-- Animated title with typing effect -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 leading-tight">
+                    <span class="bg-gradient-to-r from-gray-200 to-white bg-clip-text text-transparent">
+          <br>
+          <span class="typing-text text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-100">
+            Premium Quality
+          </span>
+        </h1>
+        
+        <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 text-gray-300 max-w-4xl mx-auto leading-relaxed slide-up px-4">
+          🚗 Descubre repuestos automotrices de alta calidad con tecnología de vanguardia. 
+          <span class="text-gray-400 font-semibold">Mantén tu vehículo en perfecto estado</span> con nuestros productos premium.
+        </p>
+
+        <!-- Animated stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 stats-container max-w-4xl mx-auto">
+          <div class="stat-item">
+            <div class="text-2xl sm:text-3xl font-bold text-gray-400 counter" data-target="1000">0</div>
+            <div class="text-xs sm:text-sm text-gray-400">Productos</div>
+          </div>
+          <div class="stat-item">
+            <div class="text-2xl sm:text-3xl font-bold text-gray-400 counter" data-target="500">0</div>
+            <div class="text-xs sm:text-sm text-gray-400">Clientes</div>
+          </div>
+          <div class="stat-item">
+            <div class="text-2xl sm:text-3xl font-bold text-gray-500 counter" data-target="99">0</div>
+            <div class="text-xs sm:text-sm text-gray-400">% Calidad</div>
+          </div>
+          <div class="stat-item">
+            <div class="text-2xl sm:text-3xl font-bold text-amber-400 counter" data-target="24">0</div>
+            <div class="text-xs sm:text-sm text-gray-400">Hrs Soporte</div>
+          </div>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
+          <a
+            href="/products"
+            class="w-full sm:w-auto group inline-flex items-center justify-center px-6 sm:px-8 lg:px-10 py-3 sm:py-4 bg-gradient-to-r from-gray-700 to-gray-800 text-white font-bold text-base sm:text-lg rounded-full shadow-2xl hover:shadow-gray-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+          >
+            <span class="mr-2">🛒</span>
+            Explorar Tienda
+            <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </a>
+          <a
+            href="#featured"
+            class="w-full sm:w-auto group inline-flex items-center justify-center px-6 sm:px-8 lg:px-10 py-3 sm:py-4 border-2 border-white/30 backdrop-blur-sm text-white font-bold text-base sm:text-lg rounded-full hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+          >
+            <span class="mr-2">⭐</span>
+            Ver Destacados
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+      <div class="scroll-indicator">
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products with Advanced Cards -->
+  <section id="featured" class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 sm:mb-16">
+        <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-gray-100 to-white rounded-full mb-4">
+                    <span class="text-gray-900 text-sm font-medium">✨ Productos Destacados</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+          <span class="bg-gradient-to-r from-gray-600 to-gray-700 bg-clip-text text-transparent">
+            Lo Mejor de Nuestra Colección
+          </span>
+        </h2>
+        <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+          Repuestos seleccionados cuidadosamente por nuestros expertos, con tecnología avanzada y garantía de calidad premium.
+        </p>
+      </div>        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          {featuredProducts.map((product, index) => (
+            <div 
+              class={`product-card-wrapper fade-in-up ${index % 3 === 0 ? 'floating-product' : index % 2 === 0 ? 'pulse-product' : 'glow-product'}`} 
+              style={`animation-delay: ${index * 0.2}s; --float-delay: ${index * 0.5}s`}
+            >
+              <div class="product-inner-wrapper">
+                <ProductCard product={product} client:load />
+                {/* Efectos visuales adicionales */}
+                <div class="product-shine"></div>
+                <div class="product-glow-ring"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div class="text-center">
+          <a
+            href="/products"
+            class="group inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-gray-800 to-black text-white font-bold text-base sm:text-lg rounded-full shadow-2xl hover:shadow-gray-500/25 transition-all duration-300 transform hover:scale-105"
+          >
+            <span class="mr-2">🔍</span>
+            Ver Todos los Productos
+            <svg class="ml-2 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  <!-- Interactive Features Section -->
+  <section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-gray-900 to-black text-white relative overflow-hidden">
+    <!-- Background animation -->
+    <div class="absolute inset-0">
+      <div class="tech-grid"></div>
+    </div>
+    
+    <div class="w-full">
+      <div class="text-center mb-12 sm:mb-16 px-4 py-8">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
+          <span class="bg-gradient-to-r from-gray-500 to-gray-600 bg-clip-text text-transparent">
+            ¿Por Qué Elegirnos?
+          </span>
+        </h2>
+        <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+          Innovación, calidad y servicio excepcional en cada producto que ofrecemos
+        </p>
+      </div>        <div class="grid grid-cols-1 md:grid-cols-3 gap-0 w-full">
+          <div class="group px-8 py-12 bg-gradient-to-b from-gray-800/30 to-gray-900/20 border-r border-gray-500/20 hover:from-gray-700/40 hover:to-gray-800/30 transition-all duration-300">
+            <div class="feature-icon-wrapper bg-gradient-to-br from-gray-400 to-gray-600 mx-auto mb-6">
+              <div class="feature-icon">
+                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-gray-300 transition-colors text-center">
+              🛡️ Calidad Garantizada
+            </h3>
+            <p class="text-gray-300 leading-relaxed text-center mb-6">
+              Todos nuestros productos superan las especificaciones OEM con certificaciones internacionales y garantía extendida.
+            </p>
+            <div class="feature-stats text-center">
+              <span class="text-gray-300 font-bold text-3xl block">99.9%</span>
+              <span class="text-sm text-gray-400">Satisfacción del cliente</span>
+            </div>
+          </div>
+          
+          <div class="group px-8 py-12 bg-gradient-to-b from-slate-800/30 to-gray-800/20 border-r border-slate-500/20 hover:from-slate-700/40 hover:to-gray-700/30 transition-all duration-300">
+            <div class="feature-icon-wrapper bg-gradient-to-br from-slate-400 to-slate-600 mx-auto mb-6">
+              <div class="feature-icon">
+                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-slate-300 transition-colors text-center">
+              🚀 Envío Express
+            </h3>
+            <p class="text-gray-300 leading-relaxed text-center mb-6">
+              Entrega gratuita en pedidos superiores a $60. Recibe tus repuestos en tiempo récord con seguimiento en vivo.
+            </p>
+            <div class="feature-stats text-center">
+              <span class="text-slate-300 font-bold text-3xl block">24-48h</span>
+              <span class="text-sm text-gray-400">Tiempo de entrega</span>
+            </div>
+          </div>
+          
+          <div class="group px-8 py-12 bg-gradient-to-b from-gray-700/30 to-gray-800/20 hover:from-gray-600/40 hover:to-gray-700/30 transition-all duration-300">
+            <div class="feature-icon-wrapper bg-gradient-to-br from-gray-500 to-gray-700 mx-auto mb-6">
+              <div class="feature-icon">
+                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-gray-400 transition-colors text-center">
+              🔧 Soporte Experto
+            </h3>
+            <p class="text-gray-300 leading-relaxed text-center mb-6">
+              Nuestro equipo especializado te ayuda a encontrar las piezas perfectas con asesoramiento técnico profesional 24/7.
+            </p>
+            <div class="feature-stats text-center">
+              <span class="text-gray-400 font-bold text-3xl block">24/7</span>
+              <span class="text-sm text-gray-400">Soporte disponible</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Interactive Technology Showcase -->
+  <section class="py-12 sm:py-16 lg:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 sm:mb-16">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+          <span class="bg-gradient-to-r from-gray-600 to-gray-700 bg-clip-text text-transparent">
+            Tecnología de Vanguardia
+          </span>
+        </h2>
+        <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+          Experiencia de compra moderna con herramientas inteligentes
+        </p>
+      </div>        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-8">
+            <div class="tech-feature">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-700 rounded-full flex items-center justify-center mr-4">
+                  <span class="text-white text-xl">🔍</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900">Búsqueda Inteligente</h3>
+              </div>
+              <p class="text-gray-600 ml-16">
+                Encuentra exactamente lo que necesitas con nuestro sistema de búsqueda avanzado por marca, modelo y año.
+              </p>
+            </div>
+
+            <div class="tech-feature">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-gradient-to-r from-gray-500 to-gray-600 rounded-full flex items-center justify-center mr-4">
+                  <span class="text-white text-xl">📱</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900">App Móvil</h3>
+              </div>
+              <p class="text-gray-600 ml-16">
+                Accede a tu cuenta, haz pedidos y rastrea envíos desde cualquier dispositivo con nuestra app optimizada.
+              </p>
+            </div>
+
+            <div class="tech-feature">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-gradient-to-r from-gray-500 to-gray-600 rounded-full flex items-center justify-center mr-4">
+                  <span class="text-white text-xl">⚡</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900">Checkout Rápido</h3>
+              </div>
+              <p class="text-gray-600 ml-16">
+                Proceso de compra ultrarrápido con múltiples métodos de pago seguros y confirmación instantánea.
+              </p>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="tech-showcase">
+              <div class="floating-card">
+                <div class="p-6 bg-white rounded-2xl shadow-2xl">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-700 rounded-full flex items-center justify-center">
+                      <span class="text-white font-bold">AP</span>
+                    </div>
+                    <div class="ml-4">
+                      <h4 class="font-bold text-gray-900">AutoParts Pro</h4>
+                      <p class="text-sm text-gray-500">Sistema Inteligente</p>
+                    </div>
+                  </div>
+                  <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                      <span class="text-sm text-gray-600">Compatibilidad</span>
+                      <div class="w-24 h-2 bg-gray-300 rounded-full">
+                        <div class="w-20 h-2 bg-gray-500 rounded-full animate-pulse"></div>
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="text-sm text-gray-600">Calidad</span>
+                      <div class="w-24 h-2 bg-gray-300 rounded-full">
+                        <div class="w-24 h-2 bg-gray-600 rounded-full"></div>
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="text-sm text-gray-600">Disponibilidad</span>
+                      <div class="w-24 h-2 bg-gray-300 rounded-full">
+                        <div class="w-20 h-2 bg-gray-500 rounded-full animate-pulse"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Call to Action with Animation -->
+  <section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-900 via-slate-800 to-black text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-black/20"></div>
+    <div class="w-full">
+      <div class="text-center mb-8 sm:mb-12 px-4">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
+          <span class="bg-gradient-to-r from-gray-500 to-gray-600 bg-clip-text text-transparent">
+            ¡Comienza Ahora!
+          </span>
+        </h2>
+        <p class="text-lg sm:text-xl md:text-2xl text-gray-200 mb-6 sm:mb-8 max-w-4xl mx-auto">
+          Únete a miles de clientes satisfechos y mantén tu vehículo en perfectas condiciones
+        </p>
+      </div>      <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-8 sm:mb-12 px-4">
+        <a
+          href="/products"
+          class="w-full sm:w-auto group inline-flex items-center justify-center px-8 sm:px-10 py-3 sm:py-4 bg-white text-slate-900 font-bold text-base sm:text-lg rounded-full shadow-2xl hover:shadow-white/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+        >
+          <span class="mr-2">🛍️</span>
+          Explorar Productos
+          <svg class="ml-2 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a
+          href="#"
+          class="w-full sm:w-auto group inline-flex items-center justify-center px-8 sm:px-10 py-3 sm:py-4 border-2 border-white/30 backdrop-blur-sm text-white font-bold text-base sm:text-lg rounded-full hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+        >
+          <span class="mr-2">📞</span>
+          Contactar Expertos
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-0 w-full border-t border-gray-500/20 pt-8">
+        <div class="text-center px-4 py-8 border-r border-gray-500/20 md:px-6">
+          <div class="text-2xl sm:text-3xl font-bold text-gray-300 mb-2">+1000</div>
+          <div class="text-sm sm:text-base text-gray-300">Productos</div>
+        </div>
+        <div class="text-center px-4 py-8 md:border-r border-gray-500/20 md:px-6">
+          <div class="text-2xl sm:text-3xl font-bold text-slate-300 mb-2">500+</div>
+          <div class="text-sm sm:text-base text-gray-300">Clientes</div>
+        </div>
+        <div class="text-center px-4 py-8 border-r border-gray-500/20 md:px-6">
+          <div class="text-2xl sm:text-3xl font-bold text-gray-400 mb-2">99%</div>
+          <div class="text-sm sm:text-base text-gray-300">Satisfacción</div>
+        </div>
+        <div class="text-center px-4 py-8 md:px-6">
+          <div class="text-2xl sm:text-3xl font-bold text-gray-200 mb-2">24/7</div>
+          <div class="text-sm sm:text-base text-gray-300">Soporte</div>
+        </div>
+      </div>
+      </div>
+    </section>
+  </main>
+  
+</Layout>
+
+<style>
+  /* Hero Background Animations */
+  .floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .shape {
+    position: absolute;
+    background: linear-gradient(45deg, rgba(107, 114, 128, 0.3), rgba(75, 85, 99, 0.3));
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .shape-1 {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .shape-2 {
+    width: 150px;
+    height: 150px;
+    top: 60%;
+    right: 10%;
+    animation-delay: 2s;
+  }
+
+  .shape-3 {
+    width: 80px;
+    height: 80px;
+    top: 80%;
+    left: 20%;
+    animation-delay: 4s;
+  }
+
+  .shape-4 {
+    width: 120px;
+    height: 120px;
+    top: 40%;
+    left: 50%;
+    animation-delay: 1s;
+  }
+
+  .shape-5 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    right: 30%;
+    animation-delay: 3s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+  }
+
+  .animated-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(107, 114, 128, 0.1), transparent, rgba(75, 85, 99, 0.1));
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    z-index: 2;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Typing Animation */
+  .typing-text {
+    border-right: 3px solid #f97316;
+    animation: typing 3s steps(15) infinite, blink 0.5s infinite alternate;
+  }
+
+  @keyframes typing {
+    0% { width: 0; }
+    50% { width: 100%; }
+    100% { width: 100%; }
+  }
+
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+
+  /* Slide up animation */
+  .slide-up {
+    animation: slideUp 1s ease-out;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Stats Counter Animation */
+  .stat-item {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .stat-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  /* Scroll Indicator */
+  .scroll-indicator {
+    width: 30px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    position: relative;
+    animation: bounce 2s infinite;
+  }
+
+  .scroll-dot {
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollDown 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes scrollDown {
+    0% { top: 10px; opacity: 1; }
+    100% { top: 30px; opacity: 0; }
+  }
+
+  /* Product Cards Animation */
+  .product-card-wrapper {
+    opacity: 1 !important; /* Asegurar visibilidad */
+    transform: translateY(0px) !important; /* Resetear transformación inicial */
+    animation-fill-mode: both;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Animación de entrada */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  /* Productos con animación flotante continua */
+  .floating-product .product-inner-wrapper {
+    animation: productFloat 4s ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+  }
+
+  @keyframes productFloat {
+    0%, 100% { 
+      transform: translateY(0px) scale(1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    50% { 
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  /* Productos con efecto de pulso */
+  .pulse-product .product-inner-wrapper {
+    animation: productPulse 3s ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+  }
+
+  @keyframes productPulse {
+    0%, 100% { 
+      transform: scale(1);
+      box-shadow: 0 4px 20px rgba(107, 114, 128, 0.2);
+    }
+    50% { 
+      transform: scale(1.03);
+      box-shadow: 0 8px 30px rgba(107, 114, 128, 0.3);
+    }
+  }
+
+  /* Productos con efecto de brillo */
+  .glow-product .product-inner-wrapper {
+    position: relative;
+    animation: productGlow 5s ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+  }
+
+  @keyframes productGlow {
+    0%, 100% { 
+      box-shadow: 0 4px 20px rgba(239, 68, 68, 0.2);
+    }
+    50% { 
+      box-shadow: 0 8px 35px rgba(239, 68, 68, 0.4);
+    }
+  }
+
+  /* Efecto de brillo que se mueve por la carta */
+  .product-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.8s ease;
+    pointer-events: none;
+    z-index: 10;
+    border-radius: 0.5rem;
+  }
+
+  .product-card-wrapper:hover .product-shine {
+    left: 100%;
+  }
+
+  /* Anillo de brillo para algunos productos */
+  .product-glow-ring {
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, transparent, rgba(107, 114, 128, 0.2), transparent, rgba(75, 85, 99, 0.2), transparent);
+    border-radius: 0.75rem;
+    opacity: 0;
+    animation: ringGlow 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  @keyframes ringGlow {
+    0%, 100% { 
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    50% { 
+      opacity: 0.4;
+      transform: scale(1.02);
+    }
+  }
+
+  /* Solo mostrar el anillo en productos con efecto glow */
+  .glow-product .product-glow-ring {
+    display: block;
+  }
+
+  .floating-product .product-glow-ring,
+  .pulse-product .product-glow-ring {
+    display: none;
+  }
+
+  /* Wrapper interno para mejor control de animaciones */
+  .product-inner-wrapper {
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: white; /* Asegurar fondo blanco */
+    min-height: 300px; /* Altura mínima garantizada */
+  }
+
+  .product-inner-wrapper:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+    z-index: 10;
+  }
+
+  /* Animaciones alternadas para crear variedad */
+  .product-card-wrapper:nth-child(4n+1) .product-inner-wrapper {
+    animation-duration: 4s;
+  }
+
+  .product-card-wrapper:nth-child(4n+2) .product-inner-wrapper {
+    animation-duration: 5s;
+  }
+
+  .product-card-wrapper:nth-child(4n+3) .product-inner-wrapper {
+    animation-duration: 3.5s;
+  }
+
+  .product-card-wrapper:nth-child(4n) .product-inner-wrapper {
+    animation-duration: 4.5s;
+  }
+
+  /* Animación de entrada mejorada */
+  @keyframes fadeInUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(30px) scale(0.95); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+    }
+  }
+
+  /* Asegurar que los productos siempre sean visibles */
+  .product-card-wrapper * {
+    visibility: visible !important;
+  }
+
+  .feature-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-icon {
+    position: relative;
+    z-index: 2;
+    color: white;
+  }
+
+  .feature-icon-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .feature-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-direction: column;
+  }
+
+  /* Tech Grid Background */
+  .tech-grid {
+    background-image: 
+      linear-gradient(rgba(107, 114, 128, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(107, 114, 128, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: techMove 20s linear infinite;
+  }
+
+  @keyframes techMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+  }
+
+  /* Tech Feature Items */
+  .tech-feature {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+
+  .tech-feature:nth-child(2) { animation-delay: 0.2s; }
+  .tech-feature:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes slideInLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Tech Showcase */
+  .tech-showcase {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .floating-card {
+    animation: floatCard 6s ease-in-out infinite;
+  }
+
+  @keyframes floatCard {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .shape {
+      display: none;
+    }
+    
+    .typing-text {
+      border-right: none;
+      animation: none;
+    }
+    
+    .stats-container {
+      grid-template-columns: 2fr 2fr;
+    }
+  }
+
+  /* Custom animations */
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+  }
+
+  /* Enhanced hover effects */
+  .group:hover .group-hover\:translate-x-1 {
+    transform: translateX(0.25rem);
+  }
+
+  .group:hover .group-hover\:text-gray-300 {
+    color: #d1d5db;
+  }
+
+  .group:hover .group-hover\:text-slate-300 {
+    color: #cbd5e1;
+  }
+
+  .group:hover .group-hover\:text-gray-400 {
+    color: #9ca3af;
+  }
+
+  /* Loading animation for elements */
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>
+
+<script>
+  // Counter Animation
+  function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    const speed = 2000; // Animation duration in ms
+    
+    counters.forEach(counter => {
+      if (counter instanceof HTMLElement) {
+        const targetAttr = counter.getAttribute('data-target');
+        if (targetAttr) {
+          const target = parseInt(targetAttr);
+          const increment = target / (speed / 16); // 60fps
+          let current = 0;
+          
+          const updateCounter = () => {
+            if (current < target) {
+              current += increment;
+              counter.textContent = Math.ceil(current).toString();
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target + (target === 99 ? '%' : target >= 1000 ? '+' : target === 24 ? '' : '+');
+            }
+          };
+          
+          updateCounter();
+        }
+      }
+    });
+  }
+
+  // Intersection Observer for animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (entry.target instanceof HTMLElement) {
+          entry.target.style.animationPlayState = 'running';
+        }
+        
+        // Trigger counter animation for stats
+        if (entry.target.classList.contains('stats-container')) {
+          animateCounters();
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements for animation
+  document.addEventListener('DOMContentLoaded', () => {
+    // Asegurar que todos los productos sean visibles inmediatamente
+    const productWrappers = document.querySelectorAll('.product-card-wrapper');
+    productWrappers.forEach((wrapper, index) => {
+      if (wrapper instanceof HTMLElement) {
+        wrapper.style.opacity = '1';
+        wrapper.style.transform = 'translateY(0)';
+        wrapper.style.visibility = 'visible';
+        
+        // Agregar las animaciones continuas después de un momento
+        setTimeout(() => {
+          wrapper.classList.add('animate-ready');
+        }, (index * 200) + 1000);
+      }
+    });
+
+    const animatedElements = document.querySelectorAll('.fade-in-up, .stats-container, .tech-feature');
+    animatedElements.forEach(el => {
+      if (el instanceof HTMLElement && !el.classList.contains('product-card-wrapper')) {
+        el.style.animationPlayState = 'paused';
+      }
+      observer.observe(el);
+    });
+
+    // Inicializar animaciones de productos después de un delay
+    setTimeout(() => {
+      productWrappers.forEach((wrapper, index) => {
+        if (wrapper instanceof HTMLElement) {
+          // Añadir efectos hover mejorados
+          wrapper.addEventListener('mouseenter', () => {
+            const innerWrapper = wrapper.querySelector('.product-inner-wrapper');
+            if (innerWrapper instanceof HTMLElement) {
+              innerWrapper.style.transform = 'translateY(-5px) scale(1.03)';
+              innerWrapper.style.zIndex = '10';
+            }
+          });
+          
+          wrapper.addEventListener('mouseleave', () => {
+            const innerWrapper = wrapper.querySelector('.product-inner-wrapper');
+            if (innerWrapper instanceof HTMLElement) {
+              innerWrapper.style.transform = '';
+              innerWrapper.style.zIndex = '';
+            }
+          });
+          
+          // Activar efectos especiales aleatorios
+          if (Math.random() > 0.7) {
+            const innerWrapper = wrapper.querySelector('.product-inner-wrapper') as HTMLElement;
+            if (innerWrapper) {
+              innerWrapper.style.boxShadow = '0 0 20px rgba(107, 114, 128, 0.3)';
+            }
+          }
+        }
+      });
+    }, 2000);
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e: Event) => {
+        e.preventDefault();
+        const target = anchor.getAttribute('href');
+        if (target) {
+          const element = document.querySelector(target);
+          if (element) {
+            element.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+
+    // Add parallax effect to hero elements
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * -0.5;
+      
+      const shapes = document.querySelectorAll('.shape');
+      shapes.forEach((shape, index) => {
+        if (shape instanceof HTMLElement) {
+          const speed = 0.5 + (index * 0.1);
+          shape.style.transform = `translateY(${rate * speed}px)`;
+        }
+      });
+
+      // Añadir efectos de paralaje suaves a los productos también
+      const productCards = document.querySelectorAll('.product-inner-wrapper');
+      const triggerPoint = window.innerHeight * 0.8;
+      
+      productCards.forEach((card, index) => {
+        if (card instanceof HTMLElement) {
+          const elementTop = card.getBoundingClientRect().top;
+          if (elementTop < triggerPoint && elementTop > -card.offsetHeight) {
+            const parallaxSpeed = (index % 3 + 1) * 0.02;
+            const yPos = -(scrolled * parallaxSpeed);
+            // Solo aplicar paralaje si el elemento está visible
+            if (Math.abs(yPos) < 20) { // Limitar el efecto
+              card.style.transform += ` translateY(${yPos}px)`;
+            }
+          }
+        }
+      });
+    });
+
+    // Enhanced typing animation
+    const typingElement = document.querySelector('.typing-text') as HTMLElement;
+    if (typingElement) {
+      const texts = ['Premium Quality', 'Tecnología Avanzada', 'Servicio Profesional', 'Innovación Constante'];
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function typeAnimation() {
+        const currentText = texts[textIndex];
+        
+        if (!isDeleting) {
+          if (typingElement) {
+            typingElement.textContent = currentText.substring(0, charIndex + 1);
+          }
+          charIndex++;
+          
+          if (charIndex === currentText.length) {
+            setTimeout(() => { isDeleting = true; }, 2000);
+          }
+        } else {
+          if (typingElement) {
+            typingElement.textContent = currentText.substring(0, charIndex - 1);
+          }
+          charIndex--;
+          
+          if (charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+          }
+        }
+        
+        setTimeout(typeAnimation, isDeleting ? 50 : 150);
+      }
+      
+      setTimeout(typeAnimation, 1000);
+    }
+
+    // Añadir efectos de brillo aleatorios a los productos cada 4 segundos
+    setInterval(() => {
+      const products = document.querySelectorAll('.product-card-wrapper');
+      const randomProduct = products[Math.floor(Math.random() * products.length)];
+      const shine = randomProduct?.querySelector('.product-shine');
+      
+      if (shine instanceof HTMLElement && Math.random() > 0.6) {
+        shine.style.left = '-100%';
+        setTimeout(() => {
+          shine.style.left = '100%';
+        }, 100);
+        setTimeout(() => {
+          shine.style.left = '-100%';
+        }, 900);
+      }
+    }, 4000);
+
+    // Crear efectos visuales adicionales
+    setTimeout(() => {
+      const featuredSection = document.getElementById('featured');
+      if (featuredSection) {
+        const products = featuredSection.querySelectorAll('.product-card-wrapper');
+        
+        // Añadir un brillo sutil que recorre los productos
+        let currentIndex = 0;
+        const highlightProduct = () => {
+          // Quitar highlight anterior
+          products.forEach(p => {
+            if (p instanceof HTMLElement) {
+              p.style.boxShadow = '';
+            }
+          });
+          
+          // Añadir highlight al producto actual
+          const currentProduct = products[currentIndex];
+          if (currentProduct instanceof HTMLElement) {
+            currentProduct.style.boxShadow = '0 0 25px rgba(107, 114, 128, 0.4)';
+            
+            // Quitar después de 2 segundos
+            setTimeout(() => {
+              currentProduct.style.boxShadow = '';
+            }, 2000);
+          }
+          
+          currentIndex = (currentIndex + 1) % products.length;
+        };
+        
+        // Ejecutar cada 5 segundos
+        setInterval(highlightProduct, 5000);
+        highlightProduct(); // Ejecutar inmediatamente
+      }
+    }, 3000);
+  });
+
+  // Add loading states and micro-interactions
+  document.querySelectorAll('a, button').forEach((element: Element) => {
+    element.addEventListener('mouseenter', () => {
+      if (element instanceof HTMLElement) {
+        element.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+      }
+    });
+  });
+</script>

@@ -1,0 +1,205 @@
+[
+  {
+    "id": "1",
+    "slug": "premium-oil-filter",
+    "name": "Premium Oil Filter",
+    "brand": "AutoPro",
+    "images": [
+      "https://mobil1oilchange.com/wp-content/uploads/2024/05/Select-Diesel-Fuel-Filter-Service.jpg",
+      "https://images.pexels.com/photos/3807277/pexels-photo-3807277.jpeg?auto=compress&cs=tinysrgb&w=400"
+    ],
+    "price": 24.99,
+    "compareAtPrice": 29.99,
+    "sku": "APF-001",
+    "stock": 15,
+    "tags": ["filters", "maintenance"],
+    "description": "High-quality oil filter designed for maximum engine protection and performance.",
+    "specs": {
+      "Material": "Premium synthetic media",
+      "Thread": "3/4-16 UNF",
+      "Height": "3.5 inches",
+      "Diameter": "3.0 inches"
+    }
+  },
+  {
+    "id": "2",
+    "slug": "synthetic-motor-oil",
+    "name": "Full Synthetic Motor Oil 5W-30",
+    "brand": "Castrol Edge",
+    "images": [
+      "https://zjpgpagdnpmfgmesglvv.supabase.co/storage/v1/object/sign/ImagenesMecanica/Full%20Synthetic%20Motor%20Oil%205W-30.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85N2U5Njk5Ny0yNWM2LTRhYzctODgyZi1kYzk1OWYzZTdhODMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZW5lc01lY2FuaWNhL0Z1bGwgU3ludGhldGljIE1vdG9yIE9pbCA1Vy0zMC5qcGciLCJpYXQiOjE3NTkxOTIwMDQsImV4cCI6MTc5MDcyODAwNH0._Ihb55x4okvG2S-xlyDeOgX2DNvDKEromSSFNYMBl00"
+    ],
+    "price": 45.99,
+    "sku": "LM-5W30",
+    "stock": 8,
+    "tags": ["oils", "synthetic"],
+    "description": "Advanced full synthetic motor oil for superior engine protection and fuel economy.",
+    "specs": {
+      "Viscosity": "5W-30",
+      "Volume": "5 Quarts",
+      "Type": "Full Synthetic",
+      "API Rating": "SN Plus"
+    }
+  },
+  {
+    "id": "3",
+    "slug": "brake-pads-ceramic",
+    "name": "Ceramic Brake Pads Set",
+    "brand": "TRW",
+    "images": [
+      "https://i5.walmartimages.com/asr/d26f6b2e-8685-4bb9-a1f2-1bddf33d7cf9_1.840ea658fb5984ca003f1218651d5835.jpeg"
+    ],
+    "price": 89.99,
+    "sku": "SS-BP-CER",
+    "stock": 0,
+    "tags": ["parts", "brakes"],
+    "description": "Premium ceramic brake pads for quiet operation and extended life.",
+    "specs": {
+      "Material": "Ceramic composite",
+      "Noise Level": "Ultra-quiet",
+      "Dust": "Low dust formula",
+      "Temperature Range": "-40°F to 1200°F"
+    }
+  },
+  {
+    "id": "4",
+    "slug": "air-filter-performance",
+    "name": "High-Performance Air Filter",
+    "brand": "SPECTRE",
+    "images": [
+      "https://m.media-amazon.com/images/I/51Z4WoMij-L.jpg"
+    ],
+    "price": 34.99,
+    "sku": "AF-HP-001",
+    "stock": 12,
+    "tags": ["filters", "performance"],
+    "description": "Washable and reusable high-flow air filter for improved engine performance.",
+    "specs": {
+      "Material": "Cotton gauze",
+      "Filtration": "99% efficiency",
+      "Airflow": "High-flow design",
+      "Maintenance": "Washable & reusable"
+    }
+  },
+  {
+    "id": "5",
+    "slug": "transmission-fluid",
+    "name": "Automatic Transmission Fluid",
+    "brand": "Castrol Transmax",
+    "images": [
+      "https://contentinfo.autozone.com/znetcs/product-info/en/US/atf/15D925/image/10/"
+    ],
+    "price": 28.99,
+    "compareAtPrice": 32.99,
+    "sku": "FT-ATF",
+    "stock": 20,
+    "tags": ["oils", "transmission"],
+    "description": "Premium automatic transmission fluid for smooth shifting and protection.",
+    "specs": {
+      "Type": "Dexron VI",
+      "Volume": "1 Quart",
+      "Viscosity": "Multi-grade",
+      "Color": "Red"
+    }
+  },
+  {
+    "id": "6",
+    "slug": "spark-plugs-iridium",
+    "name": "Iridium Spark Plugs (Set of 4)",
+    "brand": "IgnitePro",
+    "images": [
+      "https://i.ebayimg.com/images/g/eMMAAOSw8CRkb8hB/s-l1600.jpg"
+    ],
+    "price": 67.99,
+    "sku": "IP-SP-IR4",
+    "stock": 76,
+    "tags": ["parts", "ignition"],
+    "description": "Long-lasting iridium spark plugs for improved fuel efficiency and performance.",
+    "specs": {
+      "Material": "Iridium center electrode",
+      "Gap": "0.044 inches",
+      "Thread": "14mm x 1.25",
+      "Life": "100,000 miles"
+    }
+  },
+  {
+    "id": "7",
+    "slug": "coolant-antifreeze",
+    "name": "Extended Life Coolant/Antifreeze",
+    "brand": "OEM (Original Equipment Manufacturer)",
+    "images": [
+      "https://www.recochem.com/wp-content/uploads/2021/05/OEM-Extended-Life-EURO-I-Antifreeze-Coolant-50-50-Prediluted_USA_EN-653x1024.png"
+    ],
+    "price": 19.99,
+    "sku": "CG-ELC",
+    "stock": 25,
+    "tags": ["oils", "coolant"],
+    "description": "Long-life coolant with corrosion protection for all cooling systems.",
+    "specs": {
+      "Type": "Ethylene Glycol",
+      "Volume": "1 Gallon",
+      "Protection": "-34°F to 265°F",
+      "Life": "150,000 miles"
+    }
+  },
+  {
+    "id": "8",
+    "slug": "cabin-air-filter",
+    "name": "HEPA Cabin Air Filter",
+    "brand": "PureAir",
+    "images": [
+      "https://themicrogard.com/wp-content/uploads/2024/10/Microgard-Hepa-Cabin-Air-Filter.webp"
+    ],
+    "price": 22.99,
+    "sku": "PA-CAF-HEPA",
+    "stock": 18,
+    "tags": ["filters", "cabin"],
+    "description": "HEPA cabin air filter for superior air quality and allergen protection.",
+    "specs": {
+      "Filtration": "HEPA grade",
+      "Efficiency": "99.97%",
+      "Particles": "0.3 microns",
+      "Odor Control": "Activated carbon"
+    }
+  },
+  {
+    "id": "9",
+    "slug": "timing-belt-kit",
+    "name": "Complete Timing Belt Kit",
+    "brand": "TimePro",
+    "images": [
+      "https://i.ebayimg.com/images/g/Zk8AAOSw9D1egSlF/s-l1600.jpg"
+    ],
+    "price": 156.99,
+    "sku": "TP-TBK-COMP",
+    "stock": 4,
+    "tags": ["parts", "timing"],
+    "description": "Complete timing belt replacement kit with all necessary components.",
+    "specs": {
+      "Includes": "Belt, tensioner, pulleys",
+      "Material": "High-strength rubber",
+      "Teeth": "153 teeth",
+      "Width": "25mm"
+    }
+  },
+  {
+    "id": "10",
+    "slug": "power-steering-fluid",
+    "name": "Power Steering Fluid",
+    "brand": "Prestone",
+    "images": [
+      "https://i5.walmartimages.com/asr/9da6a1ba-a46c-4340-9a37-4aaa6d9639b0_1.98bb6b280567653d6df2441e2c244c85.jpeg"
+    ],
+    "price": 12.99,
+    "sku": "SE-PSF",
+    "stock": 30,
+    "tags": ["oils", "steering"],
+    "description": "High-quality power steering fluid for smooth steering operation.",
+    "specs": {
+      "Type": "ATF Dexron III",
+      "Volume": "32 fl oz",
+      "Viscosity": "Multi-grade",
+      "Compatibility": "Universal"
+    }
+  }
+]

@@ -1,0 +1,46 @@
+---
+import CartBadge from './CartBadge';
+---
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center">
+          <svg class="h-8 w-8 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="ml-2 text-xl font-bold text-gray-900">AutoParts</span>
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="/" class="text-gray-700 hover:text-gray-600 px-3 py-2 text-sm font-medium transition-colors">
+          Home
+        </a>
+        <a href="/products" class="text-gray-700 hover:text-gray-600 px-3 py-2 text-sm font-medium transition-colors">
+          Products
+        </a>
+      </nav>
+
+      <!-- Cart Badge -->
+      <div class="flex items-center">
+        <CartBadge client:load />
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="md:hidden border-t border-gray-200">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      <a href="/" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-600 hover:bg-gray-50">
+        Home
+      </a>
+      <a href="/products" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-600 hover:bg-gray-50">
+        Products
+      </a>
+    </div>
+  </div>
+</header>

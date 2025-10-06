@@ -1,0 +1,256 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PriceTag from '../../components/PriceTag';
+import { getAllProducts, getProductBySlug } from '../../lib/products';
+
+export async function getStaticPaths() {
+  const products = getAllProducts();
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+
+if (!product) {
+  return Astro.redirect('/404');
+}
+
+const jsonLd = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": product.name,
+  "image": product.images,
+  "description": product.description,
+  "sku": product.sku,
+  "brand": {
+    "@type": "Brand",
+    "name": product.brand
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": Astro.url.href,
+    "priceCurrency": "USD",
+    "price": product.price,
+    "availability": product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
+  }
+};
+---
+
+<Layout 
+  title={`${product.name} - AutoParts`}
+  description={product.description}
+  image={product.images[0]}
+>
+  <Header />
+  
+  <main class="flex-1">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <!-- Breadcrumb -->
+      <nav class="flex mb-8" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-3">
+          <li class="inline-flex items-center">
+            <a href="/" class="text-gray-700 hover:text-gray-600">
+              Home
+            </a>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <a href="/products" class="ml-1 text-gray-700 hover:text-gray-600 md:ml-2">
+                Products
+              </a>
+            </div>
+          </li>
+          <li aria-current="page">
+            <div class="flex items-center">
+              <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="ml-1 text-gray-500 md:ml-2">{product.name}</span>
+            </div>
+          </li>
+        </ol>
+      </nav>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Product Images -->
+        <div class="space-y-4">
+          <div class="aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden">
+            <img
+              id="main-image"
+              src={product.images[0]}
+              alt={product.name}
+              class="w-full h-full object-center object-cover"
+            />
+          </div>
+          
+          {product.images.length > 1 && (
+            <div class="grid grid-cols-4 gap-2">
+              {product.images.map((image, index) => (
+                <button
+                  key={index}
+                  class="aspect-w-1 aspect-h-1 bg-gray-200 rounded-md overflow-hidden hover:opacity-75 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                  onclick={`document.getElementById('main-image').src = '${image}'`}
+                >
+                  <img
+                    src={image}
+                    alt={`${product.name} view ${index + 1}`}
+                    class="w-full h-full object-center object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <!-- Product Info -->
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-3xl font-bold text-gray-900">{product.name}</h1>
+            <p class="text-lg text-gray-600 mt-2">{product.brand}</p>
+          </div>
+
+          <PriceTag 
+            price={product.price} 
+            compareAtPrice={product.compareAtPrice}
+            className="text-2xl"
+            client:load
+          />
+
+          <div class="flex items-center space-x-4">
+            <span class={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+              product.stock === 0 
+                ? 'bg-gray-200 text-gray-700' 
+                : product.stock <= 5 
+                  ? 'bg-yellow-100 text-yellow-800'
+                  : 'bg-gray-400 text-gray-900'
+            }`}>
+              {product.stock === 0 ? 'Out of Stock' : `${product.stock} in stock`}
+            </span>
+            <span class="text-sm text-gray-500">SKU: {product.sku}</span>
+          </div>
+
+          <div class="prose prose-sm text-gray-600">
+            <p>{product.description}</p>
+          </div>
+
+          <!-- Add to Cart Section -->
+          <div id="add-to-cart-section" class="space-y-4">
+            <div class="flex items-center space-x-4">
+              <label for="quantity" class="text-sm font-medium text-gray-700">
+                Quantity:
+              </label>
+              <select
+                id="quantity"
+                class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
+                disabled={product.stock === 0}
+              >
+                {Array.from({ length: Math.min(product.stock, 10) }, (_, i) => (
+                  <option key={i + 1} value={i + 1}>{i + 1}</option>
+                ))}
+              </select>
+            </div>
+
+            <button
+              id="add-to-cart-btn"
+              class={`w-full py-3 px-6 text-base font-medium rounded-md transition-colors ${
+                product.stock === 0
+                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  : 'bg-gray-700 text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500'
+              }`}
+              disabled={product.stock === 0}
+            >
+              {product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
+            </button>
+          </div>
+
+          <!-- Product Tags -->
+          <div>
+            <h3 class="text-sm font-medium text-gray-700 mb-2">Categories:</h3>
+            <div class="flex flex-wrap gap-2">
+              {product.tags.map(tag => (
+                <a
+                  key={tag}
+                  href={`/products?tag=${tag}`}
+                  class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors"
+                >
+                  {tag.charAt(0).toUpperCase() + tag.slice(1)}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Specifications -->
+      <div class="mt-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Specifications</h2>
+        <div class="bg-white shadow overflow-hidden sm:rounded-md">
+          <dl class="divide-y divide-gray-200">
+            {Object.entries(product.specs).map(([key, value]) => (
+              <div key={key} class="px-6 py-4 grid grid-cols-3 gap-4">
+                <dt class="text-sm font-medium text-gray-500">{key}</dt>
+                <dd class="text-sm text-gray-900 col-span-2">{value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
+</Layout>
+
+<script define:vars={{ product }}>
+  import { addToCart } from '../../lib/cart';
+  
+  const addToCartBtn = document.getElementById('add-to-cart-btn');
+  const quantitySelect = document.getElementById('quantity');
+  
+  if (addToCartBtn && quantitySelect && product.stock > 0) {
+    addToCartBtn.addEventListener('click', () => {
+      const quantity = parseInt(quantitySelect.value);
+      const originalText = addToCartBtn.textContent;
+      
+      // Update button state
+      addToCartBtn.textContent = 'Adding...';
+      addToCartBtn.disabled = true;
+      
+      try {
+        addToCart(product, quantity);
+        
+        // Show success state
+        addToCartBtn.textContent = '✓ Added to Cart!';
+        addToCartBtn.classList.remove('bg-gray-700', 'hover:bg-gray-800');
+        addToCartBtn.classList.add('bg-gray-600');
+        
+        // Reset after 2 seconds
+        setTimeout(() => {
+          addToCartBtn.textContent = originalText;
+          addToCartBtn.disabled = false;
+          addToCartBtn.classList.remove('bg-gray-600');
+          addToCartBtn.classList.add('bg-gray-700', 'hover:bg-gray-800');
+        }, 2000);
+        
+      } catch (error) {
+        console.error('Error adding to cart:', error);
+        addToCartBtn.textContent = 'Error - Try Again';
+        addToCartBtn.disabled = false;
+        
+        setTimeout(() => {
+          addToCartBtn.textContent = originalText;
+        }, 2000);
+      }
+    });
+  }
+</script>

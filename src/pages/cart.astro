@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CartPage from '../components/CartPage';
+---
+
+<Layout title="Shopping Cart - AutoParts" description="Review your selected automotive parts and proceed to checkout">
+  <Header />
+  
+  <main class="flex-1">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <CartPage client:load />
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
